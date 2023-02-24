@@ -1,4 +1,5 @@
 <?php
+// Variabel adalah
 $nama = "Zuhdi";
 $matakuliah = "Pemrograman Web"
  ?>
