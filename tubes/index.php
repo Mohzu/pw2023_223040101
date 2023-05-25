@@ -42,9 +42,7 @@
 
       <div class="navbar-extra">
         <a href="#" id="search-button"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart-button"
-          ><i data-feather="shopping-cart"></i
-        ></a>
+        <a href="login.php"><i data-feather="users"></i></a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
 
@@ -54,36 +52,6 @@
         <label for="search-box"><i data-feather="search"></i></label>
       </div>
       <!-- Search Form end -->
-
-      <!-- Shopping Cart Start-->
-      <div class="shopping-cart">
-        <div class="cart-item">
-          <img src="img/paketintensif.jpg" alt="Product 1" />
-          <div class="items-detail">
-            <h3>Product 1</h3>
-            <div class="item-price">Rp 900.000</div>
-          </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
-        <div class="cart-item">
-          <img src="img/paketintensif.jpg" alt="Product 1" />
-          <div class="items-detail">
-            <h3>Product 1</h3>
-            <div class="item-price">Rp 900.000</div>
-          </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
-        <div class="cart-item">
-          <img src="img/paketintensif.jpg" alt="Product 1" />
-          <div class="items-detail">
-            <h3>Product 1</h3>
-            <div class="item-price">Rp 900.000</div>
-          </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
-      </div>
-
-      <!-- Shopping Cart end-->
     </nav>
 
     <!--Home-->
@@ -92,7 +60,7 @@
       <p>Bimbel online terbaik untuk SD, SMP, SMA, dan persiapan masuk PTN</p>
 
       <div class="btn">
-        <a class="blue" href="register.html">Daftar Akun</a>
+        <a class="blue" href="login.php">Daftar Akun</a>
         <a class="bluesky" href="#products">Paket Belajar</a>
       </div>
     </section>
@@ -133,13 +101,12 @@
       <div class="row">
         <div class="product-card">
           <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"
+            <a href="pages/paketutbk.php" class="item-detail-button"
               ><i data-feather="eye"></i
             ></a>
           </div>
           <div class="product-image">
-            <img src="/img/paketintensif.jpg" alt="Product 1" />
+            <img src="img/paketintensif.jpg" alt="Product 1" />
           </div>
           <div class="product-content">
             <h3>Paket Intensif UTBK - 2023</h3>
@@ -155,15 +122,15 @@
             </div>
           </div>
         </div>
+
         <div class="product-card">
           <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"
+            <a href="pages/paketus12.php" class="item-detail-button"
               ><i data-feather="eye"></i
             ></a>
           </div>
           <div class="product-image">
-            <img src="/img/paket 2.jpg" alt="Product 2" />
+            <img src="img/paket 2.jpg" alt="Product 2" />
           </div>
           <div class="product-content">
             <h3>Paket Ujian Sekolah Kelas 12</h3>
@@ -181,13 +148,12 @@
         </div>
         <div class="product-card">
           <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
             <a href="#" class="item-detail-button"
               ><i data-feather="eye"></i
             ></a>
           </div>
           <div class="product-image">
-            <img src="/img/paket 3.jpg" alt="Product 3" />
+            <img src="img/paket 3.jpg" alt="Product 3" />
           </div>
           <div class="product-content">
             <h3>Paket Ujian Sekolah K11 + K10</h3>
@@ -205,13 +171,12 @@
         </div>
         <div class="product-card">
           <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
             <a href="#" class="item-detail-button"
               ><i data-feather="eye"></i
             ></a>
           </div>
           <div class="product-image">
-            <img src="/img/paket 4.jpg" alt="Product 4" />
+            <img src="img/paket 4.jpg" alt="Product 4" />
           </div>
           <div class="product-content">
             <h3>Paket Ujian Sekolah Kelas 9</h3>
@@ -229,13 +194,12 @@
         </div>
         <div class="product-card">
           <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
             <a href="#" class="item-detail-button"
               ><i data-feather="eye"></i
             ></a>
           </div>
           <div class="product-image">
-            <img src="/img/paket 5.jpg" alt="Product 5" />
+            <img src="img/paket 5.jpg" alt="Product 5" />
           </div>
           <div class="product-content">
             <h3>Paket Ujian Sekolah K8 + K7</h3>
@@ -253,13 +217,12 @@
         </div>
         <div class="product-card">
           <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
             <a href="#" class="item-detail-button"
               ><i data-feather="eye"></i
             ></a>
           </div>
           <div class="product-image">
-            <img src="/img/paket 6.jpg" alt="Product 6" />
+            <img src="img/paket 6.jpg" alt="Product 6" />
           </div>
           <div class="product-content">
             <h3>SD Super 1 Tahun Ajaran</h3>
@@ -339,6 +302,7 @@
       <div class="footer-col">
         <h3>Education<span>Zone</span></h3>
       </div>
+
       <div class="footer-col">
         <h3>Quick Links</h3>
         <li>Home</li>
@@ -346,12 +310,14 @@
         <li>Paket Belajar</li>
         <li>Teacher</li>
       </div>
+
       <div class="footer-col">
         <h3>Social Media</h3>
         <li>Instagram</li>
         <li>Facebook</li>
         <li>Twitter</li>
       </div>
+
       <div class="footer-col">
         <h3>Newsletter</h3>
         <p>You can Trust us. We only send promo offers</p>
@@ -375,37 +341,6 @@
       </div>
     </footer>
 
-    <!--Modal Box Item Detail start-->
-    <div class="modal" id="item-detail-modal">
-      <div class="modal-container">
-        <a href="#" class="close-icon"><i data-feather="x-circle"></i></a>
-        <div class="modal-content">
-          <img src="img/paketintensif.jpg" alt="product 1" />
-          <div class="product-content">
-            <h3>Product 1</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis veniam eaque expedita odio quidem? Tempora.
-            </p>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
-            </div>
-            <div class="product-price">
-              Rp 900.000 <span>Rp 1.300.000</span>
-            </div>
-            <a href="#"
-              ><i data-feather="shopping-cart"></i><span>add to cart</span></a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--Modal Box Item Detail end-->
     <!--Feather Icons-->
     <script>
       feather.replace();

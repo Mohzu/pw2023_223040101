@@ -1,170 +1,147 @@
-:root {
-  font-size: 100%;
-  font-size: 16px;
-  --primary-blue: #233975;
-}
-.body {
-  padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-h1 {
-  font-size: 2.25rem;
-  font-weight: 700;
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: rgb(21, 21, 100);
 }
-h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
+
+.main-container {
+  width: 410px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+  z-index: 10;
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
 }
-a {
-  text-decoration: none;
-  color: var(--primary-blue);
+
+.container {
+  width: 820px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  flex-direction: row;
+  transition: all 0.5s ease;
 }
-a:hover {
-  text-decoration: underline;
+
+.login-container,
+.signup-container {
+  width: 410px;
+  padding: 30px;
+  height: 100%;
 }
-.small {
-  font-size: 80%;
+
+#slide:checked ~ .container {
+  left: -410px;
+  position: absolute;
+}
+
+.container .text {
+  font-size: 35px;
+  font-weight: 600;
   text-align: center;
 }
-.split-screen {
+
+.container form {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
-.left {
-  height: 200px;
-}
-.left,
-.right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.left {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
-    url("/img/header.jpg");
-  background-size: cover;
-}
-.left .copy {
-  color: white;
-  text-align: center;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.left p {
-  font-weight: 400;
-}
-.right .copy {
-  color: black;
-  text-align: center;
-}
-.right .copy p {
-  margin: 1.5rem 0;
-  font-size: 0.875rem;
-}
-.right form {
-  width: 328px;
-}
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
-  display: block;
+
+.container form .data {
+  height: 45px;
   width: 100%;
-  box-sizing: border-box;
-  border-radius: 8px;
-  border: 1px solid #c4c4c4;
-  padding: 1rem;
-  margin-bottom: 1.25rem;
-  font-size: 0.75rem;
+  margin: 20px 0;
 }
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.75rem;
+
+form .data label {
+  font-size: 18px;
 }
-.input-container.password {
-  position: relative;
-}
-.input-container.password i {
-  position: absolute;
-  top: 42px;
-  right: 16px;
-}
-.checkbox-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-.checkbox-container {
-  display: block;
-  position: relative;
-  padding-left: 2rem;
-  cursor: pointer;
-  user-select: none;
-  margin: 0 0 1.25rem 0;
-}
-.checkbox-container input:checked-.checkmark {
-  background-color: var(--primary-blue);
-  border: 1px solid var(--primary-blue);
-}
-.checkmark {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  background: white;
-  border: 1px solid #c4c4c4;
+
+form .data input {
+  height: 100%;
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  border: 1px solid silver;
+  outline: none;
   border-radius: 2px;
-  top: -4px;
-  left: 0;
 }
-.checkmark::after {
-  content: "";
-  position: absolute;
-  display: none;
+
+.data input:focus {
+  border-color: rgb(21, 21, 100);
+  border-bottom-width: 2.5px;
 }
-.checkbox-container input:checked-.checkmark::after {
-  display: block;
-}
-.checkbox-container .checkmark::after {
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  width: 5px;
-  height: 10px;
-  left: 8px;
-  top: 4px;
-  transform: rotate(45deg);
-}
-.signup-btn {
-  display: block;
+
+form .btn-login {
+  margin: 52px 0 20px 0;
   width: 100%;
-  background: var(--primary-blue);
-  color: white;
-  font-weight: 700;
-  border: none;
-  padding: 1rem;
-  border-radius: 8px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  height: 45px;
 }
-.signup-btn:hover {
-  background: #2c4893;
+
+form .btn-signup {
+  margin: 20px 0;
+  height: 45px;
+  width: 100%;
+}
+
+form .btn-login button,
+form .btn-signup button {
+  height: 100%;
+  width: 100%;
+  background: rgb(21, 21, 100);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.btn-login button:hover,
+.btn-signup button:hover {
+  background: #fff;
+  border: 2px solid rgb(21, 21, 100);
+  color: rgb(21, 21, 100);
+}
+
+form .signup-link {
+  text-align: center;
+}
+
+form .signup-link a {
+  color: rgb(21, 21, 100);
+  text-decoration: none;
+}
+
+form .signup-link .slide {
   cursor: pointer;
 }
 
-/* Media Queries */
-@media screen and (min-width: 900px) {
-  .split-screen {
-    flex-direction: row;
-    height: 100vh;
-  }
-  .left,
-  .right {
-    display: flex;
-    width: 50%;
-    height: auto;
-  }
+form .signup-link a:hover {
+  text-decoration: underline;
+}
+
+input[type="checkbox"] {
+  display: none;
 }
