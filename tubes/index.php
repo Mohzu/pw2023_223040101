@@ -77,11 +77,13 @@
             EducationZone adalah Bimbel yang menjadi Pencetak lulusan terbaik
           </p>
         </div>
+        
         <div class="fea-box">
           <i class="fa-solid fa-book-open-reader"></i>
           <h3>Sumber Bacaan Lengkap</h3>
           <p>EducationZone Memiliki Sumber Bacaan yang lengkap</p>
         </div>
+
         <div class="fea-box">
           <i class="fas fa-award"></i>
           <h3>Memiliki Penghargaan</h3>
@@ -146,6 +148,7 @@
             </div>
           </div>
         </div>
+
         <div class="product-card">
           <div class="product-icons">
             <a href="#" class="item-detail-button"
@@ -169,6 +172,7 @@
             </div>
           </div>
         </div>
+
         <div class="product-card">
           <div class="product-icons">
             <a href="#" class="item-detail-button"
@@ -192,6 +196,7 @@
             </div>
           </div>
         </div>
+
         <div class="product-card">
           <div class="product-icons">
             <a href="#" class="item-detail-button"
@@ -215,6 +220,7 @@
             </div>
           </div>
         </div>
+
         <div class="product-card">
           <div class="product-icons">
             <a href="#" class="item-detail-button"
@@ -254,6 +260,7 @@
             <a href="#" class="fab fa-instagram"></a>
           </div>
         </div>
+
         <div class="card">
           <img src="img/teacher 4.jpg" alt="" />
           <h3>Maalik</h3>
@@ -264,6 +271,7 @@
             <a href="#" class="fab fa-instagram"></a>
           </div>
         </div>
+
         <div class="card">
           <img src="img/teacher 3.jpg" alt="" />
           <h3>Jennifer</h3>
@@ -274,6 +282,7 @@
             <a href="#" class="fab fa-instagram"></a>
           </div>
         </div>
+
         <div class="card">
           <img src="img/teacher 5.jpg" alt="" />
           <h3>Jacob</h3>
@@ -284,6 +293,7 @@
             <a href="#" class="fab fa-instagram"></a>
           </div>
         </div>
+
         <div class="card">
           <img src="img/teacher 2.jpg" alt="" />
           <h3>Jason</h3>

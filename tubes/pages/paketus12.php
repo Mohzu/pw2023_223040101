@@ -59,16 +59,16 @@
       <div class="box">
         <div class="images">
           <div class="img-holder active">
-            <img src="../img/paket2.jpg" />
+            <img src="../img/paket 2.jpg" />
           </div>
           <div class="img-holder">
-            <img src="../img/paket2.jpg" />
+            <img src="../img/paket 2.jpg" />
           </div>
           <div class="img-holder">
-            <img src="../img/paket2.jpg" />
+            <img src="../img/paket 2.jpg" />
           </div>
           <div class="img-holder">
-            <img src="../img/paket2.jpg" />
+            <img src="../img/paket 2.jpg" />
           </div>
         </div>
 
