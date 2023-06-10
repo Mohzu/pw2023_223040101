@@ -1,0 +1,26 @@
+.kategori {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  justify-content: space-evenly;
+}
+
+.kategori .sub-kategori {
+  border: 3px solid var(rgb(21, 21, 100));
+  border-radius: 20px;
+  background-color: rgb(21, 21, 100);
+  padding: 2rem 3rem;
+  margin: 1rem 1rem;
+}
+
+.kategori a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.kategori a:hover {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 1);
+  transition: 0.2s;
+}

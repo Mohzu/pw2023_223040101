@@ -1,5 +1,13 @@
 <?php 
-    // require "session.php"
+
+session_start();
+
+// Periksa apakah pengguna belum login
+if (!isset($_SESSION['login'])) {
+    header("Location: ../login.php");
+    exit();
+  }
+    require "session.php";
     require "../koneksi.php";
 
     $queryKategori = mysqli_query($conn, "SELECT * FROM kategori");
@@ -33,7 +41,9 @@
 
   <body>
 
-  <div class="container mt-5">
+  <?php require "navbar.php" ?>
+
+  <div class="container mt-7 pt-5" style= "margin-top: 5rem;">
   <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
@@ -46,12 +56,12 @@
         </nav>
 
         <div class="my-5 col-12 col-md-6">
-            <h3>Tambah Kategori</h3>
+            <h3 class="text-black">Tambah Kategori</h3>
 
             <form action="" method="post">
                 <div>
                     <label for="kategori">Kategori</label>
-                    <input type="text" id="kategori" name="kategori" placeholder="input nama kategori" class="form-control">
+                    <input type="text" id="kategori" name="kategori" placeholder="input nama kategori" class="form-control" autofocus autocomplete="off">
                 </div>
                 <div class="mt-3">
                     <button class="btn btn-primary" type="submit" name="simpan_kategori">Simpan</button>
@@ -95,15 +105,17 @@
         </div>
 
         <div class="mt-3">
-            <h2>List Kategori</h2>
+            <h2 class="text-black">List Kategori</h2>
 
             <div class="table-responsive mt-5">
                 <table class="table">
+                    <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
                         <th>Action</th>
                     </tr>
+                    </thead>
                     <tbody>
                         <?php 
                             if($jumlahKategori==0){
@@ -136,6 +148,8 @@
         </div>
 
   </div>
+    
+    <?php require "footer.php" ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
 </html>

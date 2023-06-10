@@ -1,3 +1,8 @@
+<?php 
+    require "koneksi.php";
+    $queryProduk = mysqli_query($conn, "SELECT id, nama, harga, foto FROM produk LIMIT 6 ");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,6 +32,7 @@
     <!--Feather Icons-->
     <script src="https://unpkg.com/feather-icons"></script>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -36,22 +42,15 @@
       <div class="navbar-nav">
         <a href="#home">Home</a>
         <a href="#feature">Keunggulan</a>
-        <a href="#products">Paket Belajar</a>
+        <a href="pages/produk.php">Paket Belajar</a>
         <a href="#teacher">Teacher</a>
       </div>
 
       <div class="navbar-extra">
-        <a href="#" id="search-button"><i data-feather="search"></i></a>
+        
         <a href="login.php"><i data-feather="users"></i></a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
-
-      <!-- Search Form Start -->
-      <div class="search-form">
-        <input type="search" id="search-box" placeholder="search here..." />
-        <label for="search-box"><i data-feather="search"></i></label>
-      </div>
-      <!-- Search Form end -->
     </nav>
 
     <!--Home-->
@@ -101,17 +100,15 @@
       </p>
 
       <div class="row">
+        <?php while($data = mysqli_fetch_array($queryProduk)){ ?>
         <div class="product-card">
           <div class="product-icons">
-            <a href="pages/paketutbk.php" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
           </div>
           <div class="product-image">
-            <img src="img/paketintensif.jpg" alt="Product 1" />
+            <img src="img/<?php echo $data['foto']; ?>" alt="" />
           </div>
           <div class="product-content">
-            <h3>Paket Intensif UTBK - 2023</h3>
+            <h3><?php echo $data['nama']; ?></h3>
             <div class="product-stars">
               <i data-feather="star" class="star-full"></i>
               <i data-feather="star" class="star-full"></i>
@@ -120,129 +117,12 @@
               <i data-feather="star"></i>
             </div>
             <div class="product-price">
-              Rp 900.000 <span>Rp 1.300.000</span>
+              Rp <?php echo $data['harga']; ?>
             </div>
           </div>
         </div>
-
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="pages/paketus12.php" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
-          </div>
-          <div class="product-image">
-            <img src="img/paket 2.jpg" alt="Product 2" />
-          </div>
-          <div class="product-content">
-            <h3>Paket Ujian Sekolah Kelas 12</h3>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
-            </div>
-            <div class="product-price">
-              Rp 600.000 <span>Rp 1.000.000</span>
-            </div>
-          </div>
+        <?php } ?>
         </div>
-
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
-          </div>
-          <div class="product-image">
-            <img src="img/paket 3.jpg" alt="Product 3" />
-          </div>
-          <div class="product-content">
-            <h3>Paket Ujian Sekolah K11 + K10</h3>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
-            </div>
-            <div class="product-price">
-              Rp 700.000 <span>Rp 1.200.000</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
-          </div>
-          <div class="product-image">
-            <img src="img/paket 4.jpg" alt="Product 4" />
-          </div>
-          <div class="product-content">
-            <h3>Paket Ujian Sekolah Kelas 9</h3>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
-            </div>
-            <div class="product-price">
-              Rp 600.000 <span>Rp 1.100.000</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
-          </div>
-          <div class="product-image">
-            <img src="img/paket 5.jpg" alt="Product 5" />
-          </div>
-          <div class="product-content">
-            <h3>Paket Ujian Sekolah K8 + K7</h3>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
-            </div>
-            <div class="product-price">
-              Rp 500.000 <span>Rp 1.000.000</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
-          </div>
-          <div class="product-image">
-            <img src="img/paket 6.jpg" alt="Product 6" />
-          </div>
-          <div class="product-content">
-            <h3>SD Super 1 Tahun Ajaran</h3>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
-            </div>
-            <div class="product-price">Rp 400.000 <span>Rp 900.000</span></div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!--Teacher-->

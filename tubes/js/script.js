@@ -28,3 +28,14 @@ document.addEventListener("click", function (e) {
     searchForm.classList.remove("active");
   }
 });
+
+// live searching
+const keyword = document.getElementById("keyword");
+const searchButton = document.getElementById("search-button");
+const searchContainer = document.getElementById("search-container");
+
+keyword.onkeyup = function () {
+  fetch("../ajax/search.php?keyword=" + keyword.value)
+    .then((response) => response.text())
+    .then((text) => (searchContainer.innerHTML = text));
+};

@@ -1,7 +1,15 @@
 <?php 
-    // require "session.php";
-    require "../koneksi.php";
+session_start();
 
+    // Periksa apakah pengguna belum login
+if (!isset($_SESSION['login'])) {
+    header("Location: ../login.php");
+    exit();
+  }
+     require "session.php";
+    require "../koneksi.php";
+    
+    // memanggil jumlah kategori dan produk
     $queryKategori = mysqli_query($conn, "SELECT * FROM kategori");
     $jumlahKategori = mysqli_num_rows($queryKategori);
 
@@ -17,7 +25,7 @@
     <title>Dashboard Admin</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="../css/style.css" />
     <!--Font Awesome-->
     <script
       src="https://kit.fontawesome.com/9e462a7e26.js"
@@ -47,14 +55,18 @@
             text-decoration: none;
         }
 
+        a{
+            text-decoration: none;
+        }
+
     </style>
     
   </head>
   <body>
 
-  <?php require "navbar.php" ?>
+        <?php require "navbar.php" ?>
     
-    <div class="container mt-5">
+    <div class="container mt-7 pt-5" style="margin-top: 5rem;">
             <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
@@ -62,7 +74,9 @@
             </li>
         </ol>
         </nav>
-        <h2>Halo <?php echo $_SESSION['username'] ?></h2>
+
+        <h2 class="text-black">Selamat Datang, Admin</h2>
+        
 
         <div class="comntaoner mt-5">
             <div class="row">

@@ -1,10 +1,26 @@
+<?php 
+  require "../koneksi.php";
+
+  // Mengambil nilai nama dari URL menggunakan $_GET['nama'] dan meneruskannya ke variabel $nama.
+  $nama = htmlspecialchars($_GET['nama']);
+
+  // Mengeksekusi query yang mengambil data produk dari tabel berdasarkan nama yang diberikan.
+  $queryProduk = mysqli_query($conn, "SELECT * FROM produk WHERE nama='$nama'");
+
+  // Menyimpan hasil query dalam variabel $produk.
+  $produk = mysqli_fetch_array($queryProduk);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paket UTBK</title>
+    <title>Detail Produk</title>
+
+    <!-- Link CSS -->
     <link rel="stylesheet" href="../css/detailsitem.css" />
 
     <!--Fonts-->
@@ -30,6 +46,65 @@
 
     <!--Feather Icons-->
     <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+      @media (max-width: 991px) {
+  .box {
+    width: 750px;
+    grid-template-areas:
+      "info info"
+      "images description";
+  }
+  .box .basic-info .options a {
+    padding: 8.5px 12px;
+  }
+}
+
+@media screen and (max-width: 991px) and (min-width: 760px) {
+  .box,
+  .basic-info span {
+    position: absolute;
+    align-self: flex-end;
+  }
+  .box .basic-info .options {
+    position: absolute;
+    align-self: flex-end;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .box {
+    width: 600px;
+    grid-template-areas:
+      "images info"
+      "description description";
+  }
+  .box .images {
+    gap: 3px;
+  }
+  .box .images .img-holder img {
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 640px) {
+  .box {
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    padding: 35px;
+    margin: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+      "images"
+      "info"
+      "description";
+  }
+}
+
+    </style>
   </head>
   <body>
     <nav class="navbar">
@@ -38,7 +113,7 @@
       <div class="navbar-nav">
         <a href="../index.php">Home</a>
         <a href="../index.php">Keunggulan</a>
-        <a href="../index.php">Paket Belajar</a>
+        <a href="produk.php">Paket Belajar</a>
         <a href="../index.php">Teacher</a>
       </div>
 
@@ -55,25 +130,26 @@
       </div>
       <!-- Search Form end -->
     </nav>
+
     <div class="container">
       <div class="box">
         <div class="images">
           <div class="img-holder active">
-            <img src="../img/paketintensif.jpg" />
+            <img src="../img/<?php echo $produk['foto']; ?>" />
           </div>
           <div class="img-holder">
-            <img src="../img/paketintensif.jpg" />
+            <img src="../img/<?php echo $produk['foto']; ?>" />
           </div>
           <div class="img-holder">
-            <img src="../img/paketintensif.jpg" />
+            <img src="../img/<?php echo $produk['foto']; ?>" />
           </div>
           <div class="img-holder">
-            <img src="../img/paketintensif.jpg" />
+            <img src="../img/<?php echo $produk['foto']; ?>" />
           </div>
         </div>
 
         <div class="basic-info">
-          <h1>Paket Intensif UTBK - 2023</h1>
+          <h1><?php echo $produk['nama']; ?></h1>
           <div class="rate">
             <i data-feather="star" class="star-full"></i>
             <i data-feather="star" class="star-full"></i>
@@ -82,13 +158,13 @@
             <i data-feather="star"></i>
           </div>
 
-          <div class="product-price">Rp 900.000 <span>Rp 1.300.000</span></div>
+          <div class="product-price">Rp<?php echo $produk['harga']; ?></div>
 
           <div class="options">
             <a href="https://wa.me/6281949334058"> Hubungi Via Whatsapp </a>
           </div>
           <div class="description">
-            <p>Persiapan Spesial Intensif Khusus untun UTBK - SNBT</p>
+            <p><?php echo $produk['detail']; ?></p>
           </div>
         </div>
       </div>
@@ -144,6 +220,6 @@
     </script>
 
     <!--JavaScript-->
-    <script src="/tubes/js/script.js"></script>
+    <script src="../js/script.js"></script>
   </body>
 </html>

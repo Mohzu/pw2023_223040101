@@ -23,7 +23,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
 <footer>
-      <div class="footer-col">
+      <div class="footer-col no-print">
         <h3>Education<span>Zone</span></h3>
       </div>
 

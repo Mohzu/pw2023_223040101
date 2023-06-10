@@ -1,18 +1,24 @@
 <?php 
 
-require 'koneksi.php';
-require 'function.php';
+require "koneksi.php";
+require "function.php";
 
-if( isset($_POST["register"])) {
+// memeriksa tombol ketika di klik
+if (isset($_POST["register"])) {
 
-    if( register($_POST) > 0 ) {
-        echo"<script>
-            alert('User baru berhasil ditambahkan!');
-        </script>";
-    } else {
-        echo mysqli_error($conn);
-    }
+// menampilkan registrasi sukses
+  if (register($_POST) > 0) {
+    echo "<script>
+          alert('User baru berhasil ditambahkan.');
+          </script>";
+?>
+  <meta http-equiv="refresh" content="1; url=login.php"/>
+<?php 
+  } else {
+    echo mysqli_error($conn);
+  }
 }
+
 
 ?>
 
@@ -36,7 +42,7 @@ if( isset($_POST["register"])) {
           <form action="" method="post">
             <div class="data">
               <label for="">Username</label>
-              <input type="text" name="username" required />
+              <input type="text" name="username" autofocus autocomplete="off" required />
             </div>
 
             <div class="data">
@@ -46,11 +52,11 @@ if( isset($_POST["register"])) {
 
             <div class="data">
               <label for="">Confirm Password</label>
-              <input type="password" name="password1" required />
+              <input type="password" name="password2" required />
             </div>
 
             <div class="btn-signup">
-              <button type="submit" name="register">Register</button>
+              <button type="submit" name="register" id="register" >Register</button>
             </div>
 
             <div class="signup-link">

@@ -1,7 +1,16 @@
 <?php 
- // require "session.php"
+
+session_start();
+
+// Periksa apakah pengguna belum login
+if (!isset($_SESSION['login'])) {
+    header("Location: ../login.php");
+    exit();
+  }
+  require "session.php";
  require "../koneksi.php";
 
+// Mendapatkan ID kategori
   $id = $_GET['q'];
 
  $query = mysqli_query($conn, "SELECT * FROM kategori WHERE id='$id'");
@@ -30,21 +39,22 @@
 </head>
 <body>
     
+    <?php require "navbar.php" ?>
 
-    <div class="container mt-5">
-    <h2>Detail Kategori</h2>
+    <div class="container mt-7 pt-5" style= "margin-top: 5rem;">
+    <h2 class="text-black">Detail Kategori</h2>
 
     <div class="col-12 col-md-6">
     <form action="" method="post">
         <label for="kategori">Kategori</label>
-        <input type="text" name="kategori" id="kategori" class="form-control" value="<?php 
+        <input type="text" name="kategori" id="kategori" class="form-control" autofocus autocomplete="off" value=" <?php 
         echo $data['nama'];  ?>">
     </div>
-    <div class="mt-5 d-flex justify-content-between">
+    <div class="mt-5  justify-content-between">
         <button type="submit" class="btn btn-primary" name="btnedit">Edit</button>
         <button type="submit" class="btn btn-danger" name="btndelete">Delete</button>
         </div>
-    </form>
+       </form>
 
     <?php 
         if(isset($_POST['btnedit'])) {
@@ -88,6 +98,18 @@
           }
 
           if(isset($_POST['btndelete'])) {
+            $queryCheck = mysqli_query($conn, "SELECT * FROM produk WHERE kategori_id='$id'");
+            $dataCount = mysqli_num_rows($queryCheck);
+            
+            if($dataCount>0) {
+         ?>
+                <div class="alert alert-warning mt-3" role="alert">
+                        Kategori tidak bisa dihapus karena sudah digunakan di produk
+                </div>
+        <?php
+        die(); 
+            }
+            
             $queryDelete = mysqli_query($conn, "DELETE FROM kategori WHERE id='$id'");
 
             if($queryDelete) {
@@ -109,7 +131,7 @@
 </div>
 
     
-
+     <?php require "footer.php" ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
